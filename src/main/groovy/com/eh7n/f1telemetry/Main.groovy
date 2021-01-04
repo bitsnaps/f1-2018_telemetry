@@ -26,10 +26,9 @@ import com.eh7n.f1telemetry.util.PacketDeserializer
  * @author eh7n
  *
  */
- @groovy.transform.CompileStatic
-public class F12018TelemetryUDPServer {
+class Main {
 
-	private static final Logger log = LoggerFactory.getLogger(F12018TelemetryUDPServer.class)
+	private static final Logger log = LoggerFactory.getLogger(Main.class)
 
 	private static final String DEFAULT_BIND_ADDRESS = "0.0.0.0"
 	private static final int DEFAULT_PORT = 20777
@@ -39,7 +38,7 @@ public class F12018TelemetryUDPServer {
 	private int port
 	private Consumer<Packet> packetConsumer
 
-	private F12018TelemetryUDPServer() {
+	private Main() {
 		bindAddress = DEFAULT_BIND_ADDRESS
 		port = DEFAULT_PORT
 	}
@@ -49,8 +48,8 @@ public class F12018TelemetryUDPServer {
 	 *
 	 * @return
 	 */
-	public static F12018TelemetryUDPServer create() {
-		return new F12018TelemetryUDPServer()
+	public static Main create() {
+		return new Main()
 	}
 
 	/**
@@ -59,7 +58,7 @@ public class F12018TelemetryUDPServer {
 	 * @param bindAddress
 	 * @return the server instance
 	 */
-	F12018TelemetryUDPServer bindTo(String bindAddress) {
+	Main bindTo(String bindAddress) {
 		this.bindAddress = bindAddress
 		return this
 	}
@@ -70,7 +69,7 @@ public class F12018TelemetryUDPServer {
 	 * @param port
 	 * @return the server instance
 	 */
-	F12018TelemetryUDPServer onPort(int port) {
+	Main onPort(int port) {
 		this.port = port
 		return this
 	}
@@ -81,7 +80,7 @@ public class F12018TelemetryUDPServer {
 	 * @param consumer
 	 * @return the server instance
 	 */
-	F12018TelemetryUDPServer consumeWith(Consumer<Packet> consumer) {
+	Main consumeWith(Consumer<Packet> consumer) {
 		packetConsumer = consumer
 		return this
 	}
@@ -108,7 +107,8 @@ public class F12018TelemetryUDPServer {
 		// Packet object, if required.
 		ExecutorService executor = Executors.newSingleThreadExecutor()
 
-		try (DatagramChannel channel = DatagramChannel.open()) {
+		try {
+      DatagramChannel channel = DatagramChannel.open()
 			channel.socket().bind(new InetSocketAddress(bindAddress, port))
 			log.info("Listening on " + bindAddress + ":" + port + "...")
 			ByteBuffer buf = ByteBuffer.allocate(MAX_PACKET_SIZE)
@@ -116,7 +116,7 @@ public class F12018TelemetryUDPServer {
 			while (true) {
 				channel.receive(buf)
 				final Packet packet = PacketDeserializer.read(buf.array())
-				executor.submit(() -> {
+				executor.submit({
 					packetConsumer.accept(packet)
 				})
 				buf.clear()
@@ -135,12 +135,13 @@ public class F12018TelemetryUDPServer {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		F12018TelemetryUDPServer.create()
+		println('ok')
+		/*Main.create()
 							.bindTo("0.0.0.0")
 							.onPort(20777)
 							.consumeWith((p) -> {
 									log.trace(p.toJSON())
 								})
-							.start()
+							.start()*/
 	}
 }

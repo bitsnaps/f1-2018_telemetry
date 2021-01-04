@@ -3,17 +3,13 @@
 apply plugin: 'groovy'
 apply plugin: 'application'
 
-mainClassName = 'com.eh7n.f1telemetry.F12018TelemetryUDPServer'
+mainClassName = 'com.eh7n.f1telemetry.Main'
 
 // In this section you declare where to find the dependencies of your project
 repositories {
     // Use 'jcenter' for resolving your dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
-}
-
-task wrapper(type: Wrapper) {
-    gradleVersion = '4.10.1'
 }
 
 // In this section you declare the dependencies for your production and test code
