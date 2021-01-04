@@ -19,10 +19,10 @@ import com.eh7n.f1telemetry.util.PacketDeserializer;
  * The base class for the F1 2018 Telemetry app. Starts up a non-blocking I/O
  * UDP server to read packets from the F1 2018 video game and then hands those
  * packets off to a parallel thread for processing based on the lambda function
- * defined. Leverages a fluent API for initialization. 
- * 
+ * defined. Leverages a fluent API for initialization.
+ *
  * Also exposes a main method for starting up a default server
- * 
+ *
  * @author eh7n
  *
  */
@@ -45,7 +45,7 @@ public class F12018TelemetryUDPServer {
 
 	/**
 	 * Create an instance of the UDP server
-	 * 
+	 *
 	 * @return
 	 */
 	public static F12018TelemetryUDPServer create() {
@@ -54,7 +54,7 @@ public class F12018TelemetryUDPServer {
 
 	/**
 	 * Set the bind address
-	 * 
+	 *
 	 * @param bindAddress
 	 * @return the server instance
 	 */
@@ -65,7 +65,7 @@ public class F12018TelemetryUDPServer {
 
 	/**
 	 * Set the bind port
-	 * 
+	 *
 	 * @param port
 	 * @return the server instance
 	 */
@@ -76,7 +76,7 @@ public class F12018TelemetryUDPServer {
 
 	/**
 	 * Set the consumer via a lambda function
-	 * 
+	 *
 	 * @param consumer
 	 * @return the server instance
 	 */
@@ -87,7 +87,7 @@ public class F12018TelemetryUDPServer {
 
 	/**
 	 * Start the F1 2018 Telemetry UDP server
-	 * 
+	 *
 	 * @throws IOException           if the server fails to start
 	 * @throws IllegalStateException if you do not define how the packets should be
 	 *                               consumed
@@ -129,7 +129,7 @@ public class F12018TelemetryUDPServer {
 	 * Main class in case you want to run the server independently. Uses defaults
 	 * for bind address and port, and just logs the incoming packets as a JSON
 	 * object to the location defined in the logback config
-	 * 
+	 *
 	 * @param args
 	 * @throws IOException
 	 */
