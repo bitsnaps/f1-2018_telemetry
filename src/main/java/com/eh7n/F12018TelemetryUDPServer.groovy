@@ -26,6 +26,7 @@ import com.eh7n.f1telemetry.util.PacketDeserializer
  * @author eh7n
  *
  */
+ @groovy.transform.CompileStatic
 class F12018TelemetryUDPServer {
 
 	private static final Logger log = LoggerFactory.getLogger(F12018TelemetryUDPServer.class)
