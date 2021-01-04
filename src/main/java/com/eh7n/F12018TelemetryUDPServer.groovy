@@ -27,7 +27,7 @@ import com.eh7n.f1telemetry.util.PacketDeserializer
  *
  */
  @groovy.transform.CompileStatic
-class F12018TelemetryUDPServer {
+public class F12018TelemetryUDPServer {
 
 	private static final Logger log = LoggerFactory.getLogger(F12018TelemetryUDPServer.class)
 
@@ -49,7 +49,7 @@ class F12018TelemetryUDPServer {
 	 *
 	 * @return
 	 */
-	static F12018TelemetryUDPServer create() {
+	public static F12018TelemetryUDPServer create() {
 		return new F12018TelemetryUDPServer()
 	}
 
@@ -93,7 +93,7 @@ class F12018TelemetryUDPServer {
 	 * @throws IllegalStateException if you do not define how the packets should be
 	 *                               consumed
 	 */
-	void start() throws IOException {
+	public void start() throws IOException {
 
 		if (packetConsumer == null) {
 			throw new IllegalStateException("You must define how the packets will be consumed.")
@@ -134,7 +134,7 @@ class F12018TelemetryUDPServer {
 	 * @param args
 	 * @throws IOException
 	 */
-	static void main(String[] args) throws IOException {
+	public static void main(String[] args) throws IOException {
 		F12018TelemetryUDPServer.create()
 							.bindTo("0.0.0.0")
 							.onPort(20777)
