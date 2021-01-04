@@ -1,5 +1,6 @@
 // Apply the java plugin to add support for Java
 apply plugin: 'java'
+apply plugin: 'groovy'
 apply plugin: 'application'
 
 mainClassName = 'com.F12018TelemetryUDPServer'
@@ -15,6 +16,8 @@ repositories {
 dependencies {
     // The production code uses the SLF4J logging API at compile time
     compile 'org.slf4j:slf4j-api:1.7.25'
+    compile 'org.codehaus.groovy:groovy-all:2.5.1'
+    
     compile 'com.fasterxml.jackson.core:jackson-databind:2.9.10.5'
     compile 'com.fasterxml.jackson.core:jackson-core:2.9.7'
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.7'
