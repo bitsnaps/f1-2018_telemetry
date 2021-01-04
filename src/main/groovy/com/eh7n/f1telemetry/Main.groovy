@@ -138,9 +138,9 @@ class Main {
 		Main.create()
 							.bindTo("0.0.0.0")
 							.onPort(20777)
-							.consumeWith((p) -> {
+							.consumeWith{ def p ->
 									log.trace(p.toJSON())
-								})
+								}
 							.start()
 	}
 }
