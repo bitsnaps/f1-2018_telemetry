@@ -135,13 +135,12 @@ class Main {
 	 * @throws IOException
 	 */
 	public static void main(String[] args) throws IOException {
-		println('ok')
-		/*Main.create()
+		Main.create()
 							.bindTo("0.0.0.0")
 							.onPort(20777)
 							.consumeWith((p) -> {
 									log.trace(p.toJSON())
 								})
-							.start()*/
+							.start()
 	}
 }
