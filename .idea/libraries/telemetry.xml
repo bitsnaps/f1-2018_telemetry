@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="telemetry">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/build/distributions/telemetry.zip!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
