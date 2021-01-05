@@ -31,9 +31,8 @@ hs_err_pid*
 .gradle/
 build/
 .DS_Store
-build/
 
 # idea
-.idea/
+.idea
 telemetry.iml
 out/
