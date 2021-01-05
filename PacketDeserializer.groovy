@@ -314,12 +314,12 @@ public class PacketDeserializer {
 		carMotionData.setWorldVelocityX(buffer.getNextFloat());
 		carMotionData.setWorldVelocityY(buffer.getNextFloat());
 		carMotionData.setWorldVelocityZ(buffer.getNextFloat());
-		carMotionData.setWorldForwardDirX(buffer.getNextUInt16AsInt() / denormalizer);
-		carMotionData.setWorldForwardDirY(buffer.getNextUInt16AsInt() / denormalizer);
-		carMotionData.setWorldForwardDirZ(buffer.getNextUInt16AsInt() / denormalizer);
-		carMotionData.setWorldRightDirX(buffer.getNextUInt16AsInt() / denormalizer);
-		carMotionData.setWorldRightDirY(buffer.getNextUInt16AsInt() / denormalizer);
-		carMotionData.setWorldRightDirZ(buffer.getNextUInt16AsInt() / denormalizer);
+		carMotionData.setWorldForwardDirX((buffer.getNextUInt16AsInt() / denormalizer).toFloat());
+		carMotionData.setWorldForwardDirY((buffer.getNextUInt16AsInt() / denormalizer).toFloat());
+		carMotionData.setWorldForwardDirZ((buffer.getNextUInt16AsInt() / denormalizer).toFloat());
+		carMotionData.setWorldRightDirX((buffer.getNextUInt16AsInt() / denormalizer).toFloat());
+		carMotionData.setWorldRightDirY((buffer.getNextUInt16AsInt() / denormalizer).toFloat());
+		carMotionData.setWorldRightDirZ((buffer.getNextUInt16AsInt() / denormalizer).toFloat());
 		carMotionData.setgForceLateral(buffer.getNextFloat());
 		carMotionData.setgForceLongitudinal(buffer.getNextFloat());
 		carMotionData.setgForceVertical(buffer.getNextFloat());
