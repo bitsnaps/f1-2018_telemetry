@@ -1,10 +1,14 @@
-@Grab('org.slf4j:slf4j-api:1.7.25')
-@Grab(compile 'org.codehaus.groovy:groovy-all:2.5.1')
-@Grab(compile 'com.fasterxml.jackson.core:jackson-databind:2.9.10.5')
-@Grab(compile 'com.fasterxml.jackson.core:jackson-core:2.9.7')
-@Grab(compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.7')
-@Grab(compile 'ch.qos.logback:logback-classic:1.2.3')
 
+
+//@Grab('org.slf4j:slf4j-api:1.7.25')
+//@Grab('org.slf4j:slf4j-log4j12:1.7.25')
+@Grab("org.slf4j:jul-to-slf4j:1.7.25")
+@Grab("org.slf4j:log4j-over-slf4j:1.7.25")
+
+@Grab('com.fasterxml.jackson.core:jackson-databind:2.9.10.5')
+@Grab('com.fasterxml.jackson.core:jackson-core:2.9.7')
+@Grab('com.fasterxml.jackson.core:jackson-annotations:2.9.7')
+@Grab('ch.qos.logback:logback-classic:1.2.3')
 
 import java.io.IOException
 import java.net.InetSocketAddress
@@ -15,11 +19,13 @@ import java.util.concurrent.ExecutorService
 import java.util.concurrent.Executors
 import java.util.function.Consumer
 
-import org.slf4j.Logger
-import org.slf4j.LoggerFactory
+import groovy.util.logging.Slf4j
+//import org.junit.platform.commons.logging.Logger
+//import org.junit.platform.commons.logging.LoggerFactory
 
-// import com.eh7n.f1telemetry.data.Packet
-// import com.eh7n.f1telemetry.util.PacketDeserializer
+//import org.slf4j.Logger
+//import org.slf4j.LoggerFactory
+
 
 /**
  * The base class for the F1 2018 Telemetry app. Starts up a non-blocking I/O
@@ -32,9 +38,10 @@ import org.slf4j.LoggerFactory
  * @author eh7n
  *
  */
+@Slf4j
 class Main {
 
-	private static final Logger log = LoggerFactory.getLogger(Main.class)
+//	private static final Logger log = LoggerFactory.getLogger(Main.class)
 
 	private static final String DEFAULT_BIND_ADDRESS = "0.0.0.0"
 	private static final int DEFAULT_PORT = 20777
@@ -140,13 +147,14 @@ class Main {
 	 * @param args
 	 * @throws IOException
 	 */
-	public static void main(String[] args) throws IOException {
-		Main.create()
+	static void main(String[] args) throws IOException {
+		println('ok')
+		/*Main.create()
 							.bindTo("0.0.0.0")
 							.onPort(20777)
 							.consumeWith{ def p ->
 									log.trace(p.toJSON())
 								}
-							.start()
+							.start()*/
 	}
 }
