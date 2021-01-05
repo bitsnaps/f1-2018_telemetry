@@ -1,3 +1,10 @@
+@Grab('org.slf4j:slf4j-api:1.7.25')
+@Grab(compile 'org.codehaus.groovy:groovy-all:2.5.1')
+@Grab(compile 'com.fasterxml.jackson.core:jackson-databind:2.9.10.5')
+@Grab(compile 'com.fasterxml.jackson.core:jackson-core:2.9.7')
+@Grab(compile 'com.fasterxml.jackson.core:jackson-annotations:2.9.7')
+@Grab(compile 'ch.qos.logback:logback-classic:1.2.3')
+
 
 import java.io.IOException
 import java.net.InetSocketAddress
@@ -11,8 +18,8 @@ import java.util.function.Consumer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-import com.eh7n.f1telemetry.data.Packet
-import com.eh7n.f1telemetry.util.PacketDeserializer
+// import com.eh7n.f1telemetry.data.Packet
+// import com.eh7n.f1telemetry.util.PacketDeserializer
 
 /**
  * The base class for the F1 2018 Telemetry app. Starts up a non-blocking I/O
