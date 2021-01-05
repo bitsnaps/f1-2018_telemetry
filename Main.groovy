@@ -38,6 +38,7 @@ import groovy.util.logging.Slf4j
  * @author eh7n
  *
  */
+@groovy.transform.CompileStatic
 @Slf4j
 class Main {
 

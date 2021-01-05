@@ -1,4 +1,5 @@
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 public abstract class Packet {
 
