@@ -2,6 +2,7 @@
 
 //@Grab('org.slf4j:slf4j-api:1.7.25')
 //@Grab('org.slf4j:slf4j-log4j12:1.7.25')
+
 @Grab("org.slf4j:jul-to-slf4j:1.7.25")
 @Grab("org.slf4j:log4j-over-slf4j:1.7.25")
 
@@ -38,7 +39,7 @@ import groovy.util.logging.Slf4j
  * @author eh7n
  *
  */
-@groovy.transform.CompileStatic
+//@groovy.transform.CompileStatic
 @Slf4j
 class Main {
 
@@ -149,13 +150,12 @@ class Main {
 	 * @throws IOException
 	 */
 	static void main(String[] args) throws IOException {
-		println('ok')
-		/*Main.create()
+		Main.create()
 							.bindTo("0.0.0.0")
 							.onPort(20777)
 							.consumeWith{ def p ->
 									log.trace(p.toJSON())
 								}
-							.start()*/
+							.start()
 	}
 }
