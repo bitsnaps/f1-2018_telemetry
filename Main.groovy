@@ -1,4 +1,3 @@
-package com.eh7n.f1telemetry
 
 import java.io.IOException
 import java.net.InetSocketAddress
