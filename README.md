@@ -3,4 +3,8 @@ A Java app to consume UDP telemetry data from Codemaster's F1 2018 video game. B
 
 ## Changelog:
 - Use gradle instead of maven for build.
-- Create branch for groovy script.
+- Create branch for groovy script wrapper.
+
+## execution setps:
+1- Clean & build: `gradlew clean build`
+2- Run groovy script: `groovy -cp build/libs/telemetry.jar run.groovy`
