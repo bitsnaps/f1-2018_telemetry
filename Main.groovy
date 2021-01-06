@@ -281,7 +281,7 @@ public class PacketDeserializer {
 
 	private PacketBuffer buffer;
 
-	private PacketDeserializer(byte[] data) {
+	private PacketDeserializer(def data) {
 		buffer = PacketBuffer.wrap(data);
 	}
 
