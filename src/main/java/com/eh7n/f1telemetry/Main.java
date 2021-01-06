@@ -9,8 +9,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.function.Consumer;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+// import org.slf4j.Logger;
+// import org.slf4j.LoggerFactory;
 
 import com.eh7n.f1telemetry.data.Packet;
 import com.eh7n.f1telemetry.util.PacketDeserializer;
@@ -28,7 +28,7 @@ import com.eh7n.f1telemetry.util.PacketDeserializer;
  */
 public class Main {
 
-	private static final Logger log = LoggerFactory.getLogger(Main.class);
+	// private static final Logger log = LoggerFactory.getLogger(Main.class);
 
 	private static final String BINDTO_ADDRESS = "0.0.0.0";
 	private static final String DEFAULT_BIND_ADDRESS = "0.0.0.0";
@@ -99,7 +99,7 @@ public class Main {
 			throw new IllegalStateException("You must define how the packets will be consumed.");
 		}
 
-		log.info("F1 2018 - Telemetry UDP Server");
+		// log.info("F1 2018 - Telemetry UDP Server");
 
 		// Create an executor to process the Packets in a separate thread
 		// To be honest, this is probably an over-optimization due to the use of NIO,
@@ -110,7 +110,7 @@ public class Main {
 
 		try (DatagramChannel channel = DatagramChannel.open()) {
 			channel.socket().bind(new InetSocketAddress(bindAddress, port));
-			log.info("Listening on " + bindAddress + ":" + port + "...");
+			// log.info("Listening on " + bindAddress + ":" + port + "...");
 			ByteBuffer buf = ByteBuffer.allocate(MAX_PACKET_SIZE);
 			buf.order(ByteOrder.LITTLE_ENDIAN);
 			while (true) {
@@ -133,14 +133,15 @@ public class Main {
 	 *
 	 * @param args
 	 * @throws IOException
-	 */
+	 *
 	public static void main(String[] args) throws IOException {
 		Main.create()
 							.bindTo(BINDTO_ADDRESS)
 							.onPort(20777)
 							.consumeWith((p) -> {
-									log.trace(p.toJSON());
+								System.out.println(p.toJSON());
+									// log.trace(p.toJSON());
 								})
 							.start();
-	}
+	}*/
 }
