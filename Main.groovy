@@ -273,7 +273,7 @@ public class PacketParticipantsData extends Packet {
  * @see https://forums.codemasters.com/discussion/136948/f1-2018-udp-specification
  *
  */
- @groovy.transform.CompileStatic
+ // @groovy.transform.CompileStatic
 public class PacketDeserializer {
 
 	public static final int TOTAL_NBR_CARS=20;
