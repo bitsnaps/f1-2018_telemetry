@@ -1,5 +1,5 @@
-@Grab("org.slf4j:slf4j-api:1.7.25")
-@Grab("org.slf4j:slf4j-simple:1.7.25")
+// @Grab("org.slf4j:slf4j-api:1.7.25")
+// @Grab("org.slf4j:slf4j-simple:1.7.25")
 //or
 // @Grab("org.slf4j:jul-to-slf4j:1.7.25")
 // @Grab("org.slf4j:log4j-over-slf4j:1.7.25")
@@ -10,15 +10,17 @@
 // @Grab('com.fasterxml.jackson.core:jackson-annotations:2.9.7')
 
 import com.eh7n.f1telemetry.Main
-import groovy.util.logging.Slf4j
-import org.slf4j.*
+// import groovy.util.logging.Slf4j
+// import org.slf4j.*
 
 
-def log = LoggerFactory.getLogger(this.class)
+// def log = LoggerFactory.getLogger(this.class)
 
 def bindAddress = '0.0.0.0'
 def port = 20777
-
+println("Telemetry UDP Server is gonna starting...")
+Main.run(bindAddress, port)
+/*
 log.info("F1 2018 - Telemetry UDP Server")
 log.info("Listening on ${bindAddress}:${port}...")
 
@@ -29,3 +31,4 @@ Main.create()
       log.trace(p.toJSON())
     })
   .start()
+*/

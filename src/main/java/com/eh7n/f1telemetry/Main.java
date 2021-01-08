@@ -9,8 +9,8 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.function.Consumer;
 
-// import org.slf4j.Logger;
-// import org.slf4j.LoggerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.eh7n.f1telemetry.data.Packet;
 import com.eh7n.f1telemetry.util.PacketDeserializer;
@@ -28,7 +28,7 @@ import com.eh7n.f1telemetry.util.PacketDeserializer;
  */
 public class Main {
 
-	// private static final Logger log = LoggerFactory.getLogger(Main.class);
+	private static final Logger log = LoggerFactory.getLogger(Main.class);
 
 	private static final String BINDTO_ADDRESS = "0.0.0.0";
 	private static final String DEFAULT_BIND_ADDRESS = "0.0.0.0";
@@ -144,4 +144,19 @@ public class Main {
 								})
 							.start();
 	}*/
+
+	public static void main(String[] args) throws IOException {
+		Main.run(BINDTO_ADDRESS, 20777);
+	}
+
+	public static void run(String bindToAddress, int port) throws IOException {
+		Main.create()
+							.bindTo(bindToAddress)
+							.onPort(port)
+							.consumeWith((p) -> {
+									log.trace(p.toJSON());
+								})
+							.start();
+
+	}
 }
