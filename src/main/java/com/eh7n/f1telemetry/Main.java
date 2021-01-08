@@ -99,7 +99,7 @@ public class Main {
 			throw new IllegalStateException("You must define how the packets will be consumed.");
 		}
 
-		// log.info("F1 2018 - Telemetry UDP Server");
+		log.info("F1 2018 - Telemetry UDP Server");
 
 		// Create an executor to process the Packets in a separate thread
 		// To be honest, this is probably an over-optimization due to the use of NIO,
@@ -110,7 +110,7 @@ public class Main {
 
 		try (DatagramChannel channel = DatagramChannel.open()) {
 			channel.socket().bind(new InetSocketAddress(bindAddress, port));
-			// log.info("Listening on " + bindAddress + ":" + port + "...");
+			log.info("Listening on " + bindAddress + ":" + port + "...");
 			ByteBuffer buf = ByteBuffer.allocate(MAX_PACKET_SIZE);
 			buf.order(ByteOrder.LITTLE_ENDIAN);
 			while (true) {
