@@ -19,7 +19,8 @@ import com.eh7n.f1telemetry.Main
 def bindAddress = '0.0.0.0'
 def port = 20777
 println("Telemetry UDP Server is gonna starting...")
-Main.run(bindAddress, port)
+// Main.run(bindAddress, port)
+Main.run(800, 4)
 /*
 log.info("F1 2018 - Telemetry UDP Server")
 log.info("Listening on ${bindAddress}:${port}...")
