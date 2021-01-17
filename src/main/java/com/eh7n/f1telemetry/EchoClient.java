@@ -12,7 +12,7 @@ public class EchoClient {
 
     public EchoClient() throws SocketException, UnknownHostException {
         socket = new DatagramSocket();
-        address = InetAddress.getByName("localhost");
+        address = InetAddress.getByName("127.0.0.1");
     }
 
     public String sendEcho(String msg) throws IOException {
