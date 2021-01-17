@@ -13,7 +13,7 @@ public class EchoServer extends Thread {
     private byte[] buf = new byte[256];
 
     public EchoServer() throws SocketException {
-        socket = new DatagramSocket(4445);
+        socket = new DatagramSocket(20777);
     }
 
     public void run() {
