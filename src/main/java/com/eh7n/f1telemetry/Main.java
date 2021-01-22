@@ -14,21 +14,31 @@ public class Main {
 
 	private static final Logger log = LoggerFactory.getLogger(Main.class);
 
-	public static final String IP_ADDRESS = "127.0.0.1";
-	public static final int PORT = 20777;
+	public static String IP_ADDRESS = "127.0.0.1";
+	public static int PORT = 20777;
 
 	public static int counter = 0;
 
 	public static void main(String[] args) {
+
 		int stopCounter = 1000;
 		long sleepInMillis = 800;
 		boolean serverOnly = false;
+
 		if (args.length > 0){
 			sleepInMillis = Integer.valueOf(args[0]);
 			stopCounter = Integer.valueOf(args[1]);
-			// run only the server
+			// run only the server (true/false)
 			if (args.length > 2){
-				serverOnly = args[2].equals("server");
+				serverOnly = Boolean.valueOf(args[2]);
+			}
+			// IP Address
+			if (args.length > 3){
+				IP_ADDRESS = args[3];
+			}
+			// PORT
+			if (args.length > 4){
+				PORT = Integer.valueOf(args[4]);
 			}
 		}
 		if (serverOnly){
