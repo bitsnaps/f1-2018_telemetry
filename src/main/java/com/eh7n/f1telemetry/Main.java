@@ -17,7 +17,13 @@ public class Main {
 	public static int counter = 0;
 
 	public static void main(String[] args) {
-		Main.run(800, 1000);
+		int stopCounter = 1000;
+		long sleepInMillis = 800;
+		if (args.length > 0){
+			sleepInMillis = Integer.valueOf(args[0]);
+			stopCounter = Integer.valueOf(args[1]);
+		}
+		Main.run(sleepInMillis, stopCounter);
 	}
 
 	public static void run(long sleepInMillis, int stopCounter) {
@@ -35,7 +41,7 @@ public class Main {
 
 				String echo = client.sendEcho(value);
 				log.info(echo);
-				
+
 				EchoServer.sleep(sleepInMillis);
 
 				if (++counter >= stopCounter){
