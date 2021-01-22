@@ -4,16 +4,18 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.net.SocketAddress;
 import java.net.SocketException;
 
 public class EchoServer extends Thread {
+
 
     private DatagramSocket socket;
     private boolean running;
     private byte[] buf = new byte[256];
 
     public EchoServer() throws SocketException {
-        socket = new DatagramSocket(20777);
+        socket = new DatagramSocket(Main.PORT);
     }
 
     public void run() {

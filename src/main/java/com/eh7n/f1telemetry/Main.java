@@ -13,6 +13,7 @@ import java.util.Random;
 public class Main {
 
 	private static final Logger log = LoggerFactory.getLogger(Main.class);
+	public static final int PORT = 20777;
 	public static int counter = 0;
 
 	public static void main(String[] args) {
@@ -20,7 +21,8 @@ public class Main {
 	}
 
 	public static void run(long sleepInMillis, int stopCounter) {
-		log.info("telemetry is about to run...");
+		log.info("telemetry is about to run on port: "+ PORT);
+
 		Random rand = new Random();
 		try {
 			EchoServer server = new EchoServer();
@@ -28,12 +30,16 @@ public class Main {
 
 			EchoClient client = new EchoClient();
 			while (server.isAlive()) {
-//			while (++counter < 100) {
-				String echo = client.sendEcho(String.valueOf( Math.abs(rand.nextInt()) ));
+				String value = String.valueOf( Math.abs(rand.nextInt()) );
+				// log.info("Server is live with value: "+value+"\nCounter: "+counter);
+
+				String echo = client.sendEcho(value);
 				log.info(echo);
+				
 				EchoServer.sleep(sleepInMillis);
-//				if (counter == 99){
+
 				if (++counter >= stopCounter){
+					log.info("Server is about to stop at value: "+value+"\nCounter: "+counter);
 					client.sendEcho("end");
 					client.close();
 					System.exit(0);

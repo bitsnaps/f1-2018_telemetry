@@ -17,7 +17,7 @@ public class EchoClient {
 
     public String sendEcho(String msg) throws IOException {
         buf = msg.getBytes();
-        DatagramPacket packet = new DatagramPacket(buf, buf.length, address, 4445);
+        DatagramPacket packet = new DatagramPacket(buf, buf.length, address, Main.PORT);
         socket.send(packet);
         packet = new DatagramPacket(buf, buf.length);
         socket.receive(packet);
