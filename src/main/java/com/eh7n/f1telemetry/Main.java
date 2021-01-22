@@ -19,11 +19,20 @@ public class Main {
 	public static void main(String[] args) {
 		int stopCounter = 1000;
 		long sleepInMillis = 800;
+		boolean serverOnly = false;
 		if (args.length > 0){
 			sleepInMillis = Integer.valueOf(args[0]);
 			stopCounter = Integer.valueOf(args[1]);
+			// run only the server
+			if (args.length > 2){
+				serverOnly = args[2].equals("server");
+			}
 		}
-		Main.run(sleepInMillis, stopCounter);
+		if (serverOnly){
+			Main.serverOnly(sleepInMillis, stopCounter);
+		} else {
+			Main.run(sleepInMillis, stopCounter);
+		}
 	}
 
 	public static void run(long sleepInMillis, int stopCounter) {
@@ -45,7 +54,6 @@ public class Main {
 				EchoServer.sleep(sleepInMillis);
 
 				if (++counter >= stopCounter){
-					log.info("Server is about to stop at value: "+value+"\nCounter: "+counter);
 					client.sendEcho("end");
 					client.close();
 					System.exit(0);
@@ -60,4 +68,29 @@ public class Main {
 		}
 
 	}
+
+	public static void serverOnly(long sleepInMillis, int stopCounter) {
+		log.info("telemetry server is about to run on port: "+ PORT);
+
+		try {
+			EchoServer server = new EchoServer();
+			server.start();
+
+			while (server.isAlive()) {
+
+				log.info(String.valueOf( Math.abs(new Random().nextInt()) ));
+
+				EchoServer.sleep(sleepInMillis);
+
+				if (++counter >= stopCounter){
+					System.exit(0);
+				}
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+	}
+
 }
