@@ -13,7 +13,10 @@ import java.util.Random;
 public class Main {
 
 	private static final Logger log = LoggerFactory.getLogger(Main.class);
+
+	public static final String IP_ADDRESS = "127.0.0.1";
 	public static final int PORT = 20777;
+
 	public static int counter = 0;
 
 	public static void main(String[] args) {
@@ -36,7 +39,7 @@ public class Main {
 	}
 
 	public static void run(long sleepInMillis, int stopCounter) {
-		log.info("telemetry is about to run on port: "+ PORT);
+		log.info("telemetry is about to run on "+ IP_ADDRESS +":"+ PORT);
 
 		Random rand = new Random();
 		try {
