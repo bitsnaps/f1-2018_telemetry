@@ -1,3 +1,7 @@
+# Example of running:
+#./run-java.sh [sleepInMillis] [stopCounter] [serverOnly] [ipAddress] [port]
+#./run-java.sh 100 2 false 127.0.0.1 20777
+
 sleepInMillis=800
 sleepInMillis_value=${1:-$sleepInMillis}
 
